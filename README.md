@@ -7,6 +7,6 @@ O_preprocessing for the data curation (step 1 for the raw input in the analysis,
   
 2_combine for combining the result to make the 24 PDF reports and present in Skin Explorer  
   
-code_libraty for the all the defined functions  
+code_library for the all the defined functions  
   
 useful_files for the gene assemblies and HGNC reference  
