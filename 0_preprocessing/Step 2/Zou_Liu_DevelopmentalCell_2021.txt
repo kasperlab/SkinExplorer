@@ -1,0 +1,43 @@
+
+mkdir -p /home/haoy/projects/MetaStudiesAnalysis/Integration/Data/Zou_Liu_DevelopmentalCell_2021/HRA000395
+HRR_no_s=172193
+HRS_no_s=118996
+for ii in {1..9}
+do
+HRS_no=`expr $ii + $HRS_no_s - 1`
+for jj in {1..4}
+do
+HRR_no=`expr $ii \* 4 - 4 + $jj + $HRR_no_s - 1`
+echo $HRS_no
+echo $HRR_no
+cp /home/haoy/projects/MetaStudiesAnalysis/Integration/Data/Zou_Liu_DevelopmentalCell_2021/download.big.ac.cn/gsa-human/HRA000395/HRR"$HRR_no"/HRR"$HRR_no"_f1.fastq.gz /home/haoy/projects/MetaStudiesAnalysis/Integration/Data/Zou_Liu_DevelopmentalCell_2021/HRA000395/HRS"$HRS_no"_S"$ii"_L00"$jj"_R1_001.fastq.gz
+cp /home/haoy/projects/MetaStudiesAnalysis/Integration/Data/Zou_Liu_DevelopmentalCell_2021/download.big.ac.cn/gsa-human/HRA000395/HRR"$HRR_no"/HRR"$HRR_no"_r2.fastq.gz /home/haoy/projects/MetaStudiesAnalysis/Integration/Data/Zou_Liu_DevelopmentalCell_2021/HRA000395/HRS"$HRS_no"_S"$ii"_L00"$jj"_R2_001.fastq.gz
+done
+done
+
+
+
+
+for ii in {118996..119000}
+do
+/home/haoy/software/cellranger-7.1.0/cellranger count --id=HRS"$ii" \
+   --fastqs=/home/haoy/projects/MetaStudiesAnalysis/Integration/Data/Zou_Liu_DevelopmentalCell_2021/HRA000395 \
+   --sample=HRS"$ii" \
+   --transcriptome=/home/haoy/projects/MetaStudiesAnalysis/Integration/Data/reference/refdata-gex-GRCh38-2020-A &
+done
+
+
+
+
+for ii in {119001..119004}
+do
+/home/haoy/software/cellranger-7.1.0/cellranger count --id=HRS"$ii" \
+   --fastqs=/home/haoy/projects/MetaStudiesAnalysis/Integration/Data/Zou_Liu_DevelopmentalCell_2021/HRA000395 \
+   --sample=HRS"$ii" \
+   --transcriptome=/home/haoy/projects/MetaStudiesAnalysis/Integration/Data/reference/refdata-gex-GRCh38-2020-A &
+done
+
+
+
+
+
