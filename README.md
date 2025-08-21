@@ -5,7 +5,7 @@ Source code for Skin Explorer: an interactive single-cell RNA-seq resource for h
   
 1_analysis for the individual analysis  
   
-2_combine for combining the result to make the 24 PDF reports and present in Skin Explorer  
+2_combine for combining the result to make the PDF reports and present in Skin Explorer  
   
 code_library for the all the defined functions  
   
