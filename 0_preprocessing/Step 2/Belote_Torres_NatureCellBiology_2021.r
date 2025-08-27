@@ -166,7 +166,7 @@ metadata_anatomical_region_level_2_c = dplyr::case_match(
   "arch" ~ "Foot",
   "arm" ~ "Arm",
   "calf" ~ "Leg",
-  "foreskin" ~ "Foreskin",
+  "foreskin" ~ "Genitalia",
   "heel" ~ "Foot",
   "left thigh" ~ "Leg",
   "leg" ~ "Leg",
@@ -185,7 +185,7 @@ metadata_anatomical_region_level_3_c = dplyr::case_match(
   "arch" ~ "Plantar",
   "arm" ~ "unknown",
   "calf" ~ "Calf",
-  "foreskin" ~ "not applicable",
+  "foreskin" ~ "Foreskin",
   "heel" ~ "Heel",
   "left thigh" ~ "Thigh",
   "leg" ~ "unknown",
@@ -613,7 +613,7 @@ py$adata_Belote = py$adata[as.character(py$adata$obs[["individual_barcode"]]) !=
 py_run_string("sc.pp.filter_cells(adata_ALL, min_genes=1)")
 py_run_string(paste0("adata_ALL.write(output_dir + '/", h5ad_ALL_file, "')"))
 py_run_string(paste0("adata_ALL.obs.to_csv(output_dir + '/", metadata_ALL_file, "', sep='\t', index=True)"))
-py_run_string("adata_POSTPARTUM = adata_ALL[adata_ALL.obs['age_years'].str.contains('FW', regex=False)]")
+py_run_string("adata_POSTPARTUM = adata_ALL[np.logical_not(adata_ALL.obs['age_years'].str.contains('FW', regex=False))]")
 py_run_string(paste0("adata_POSTPARTUM.write(output_dir + '/", h5ad_POSTPARTUM_file, "')"))
 py_run_string(paste0("adata_POSTPARTUM.obs.to_csv(output_dir + '/", metadata_POSTPARTUM_file, "', sep='\t', index=True)"))
 #
